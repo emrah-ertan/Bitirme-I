@@ -1,6 +1,5 @@
 import torch
 from diffusers import StableDiffusionPipeline
-#from diffusers import StableDiffusionXLPipeline
 
 
 hugging_face_key = open("HUGGING_FACE_KEY", "r").read()
@@ -18,7 +17,6 @@ class CFG:
     #image_gen_model_id = "ChineseLandscapeArt_v10"
     #image_gen_model_id = "CompVis/stable-diffusion-v1-4"
     #image_gen_model_id = "stabilityai/stable-diffusion-2"
-    #image_gen_model_id = "furusu/SSD-1B-anime"
     image_gen_size =(256,256)
     image_gen_guidance_scale = 9
     prompt_gen_model_id = "gpt2"

@@ -8,7 +8,7 @@ def svg(svg_path):
     root = tree.getroot()
 
     # Ölçeklendirme faktörü
-    olcek = 7     #Kullanıcıdan alınacak çözünürlük
+    olcek = 7
 
     # SVG içeriğini dolaşın ve vektör nesnelerini ölçekleyin
     for element in root.iter():

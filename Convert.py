@@ -22,7 +22,7 @@ def to_bitmap(path):
     bitmap = np.dot((bitmap > 63).astype(float), 255)
     im = Image.fromarray(bitmap.astype(np.uint8))
     im.save('converted_image.bmp')
-    print("Bitmap dosyası 'converted_image.bmp' oluşturuldu")
+    print("Bitmap dosyası 'image.bmp' oluşturuldu")
 
 
 

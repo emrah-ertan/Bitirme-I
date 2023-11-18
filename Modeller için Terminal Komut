@@ -1,1 +1,1 @@
-python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path SafetensorFiles/ChineseLandscapeArt_v10.safetensors --dump_path ChineseLandscapeArt_v10/ --from_safetensors
+python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path SafetensorFiles/MODELNAME.safetensors --dump_path MODELNAME/ --from_safetensors
