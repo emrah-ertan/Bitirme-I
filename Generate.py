@@ -31,7 +31,7 @@ image_gen_model = image_gen_model.to(CFG.device)
 
 
 
-def generate_image(prompt,model):
+def generateImage(prompt,model):
     image = model(
         prompt, num_inference_steps = CFG.image_gen_steps,
         generator =CFG.generator,
