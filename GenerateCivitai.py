@@ -2,16 +2,13 @@ import cv2
 import diffusers
 import transformers
 
-import sys
-import os
-import shutil
 import time
 
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
 
-from PIL import Image
+
 
 
 
@@ -217,10 +214,13 @@ plot_images(images, seeds[:len(images)])
 """""
 
 def showImages(images):
-    images[0] = cv2.cvtColor(images[0],cv2.COLOR_RGB2BGR)
-    cv2.imwrite("GeneratedImages/civitai.jpg",np.array(images[0]))
+    images[0] = np.array(images[0])
+    images[0] = cv2.cvtColor(images[0], cv2.COLOR_RGB2BGR)
+    cv2.imwrite("GeneratedImages/civitai.jpg", images[0])
     image = cv2.imread("GeneratedImages/civitai.jpg")
-    cv2.imshow("Image",image)
+    cv2.imshow("Image", image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+
 showImages(images)
