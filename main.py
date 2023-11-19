@@ -1,10 +1,13 @@
 #import GenerateCivitai
-#import Generate
+import Generate
+import Convert
+import Update
 import cv2
 import numpy as np
 
 
-"""""
+
+
 #MENU
 user_input = input("Enter input:")
 
@@ -23,4 +26,3 @@ Update.renklendir(image.svg)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-"""""
