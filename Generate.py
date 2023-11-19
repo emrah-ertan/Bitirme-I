@@ -23,7 +23,7 @@ class CFG:
     prompt_dataset_size = 6
     prompt_max_length = 27
 
-image_gen_model = StableDiffusionPipeline.from_pretrained(CFG.image_gen_model_id,torch_dtype=torch.float32,
+image_gen_model = StableDiffusionPipeline.from_pretrained(CFG.image_gen_model_id,torch_dtype=torch.float16,
                     revision="fp16",use_auth_token=hugging_face_key, safety_checker=None, guidance_scale=9)
 image_gen_model = image_gen_model.to(CFG.device)
 
