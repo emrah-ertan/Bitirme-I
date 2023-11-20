@@ -1,14 +1,10 @@
 import cv2
 import diffusers
 import transformers
-
 import time
-
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
-
-
 
 
 
@@ -126,10 +122,10 @@ def get_prompt_embeddings(
 
 
 #----------
-prompt = "Rose pattern art medium resolution "
+prompt = "Tulip pattern"
 
 
-negative_prompt = "blue"
+negative_prompt = "rose, white"
 
 
 prompt_embeds, negative_prompt_embeds = get_prompt_embeddings(
@@ -148,7 +144,7 @@ use_prompt_embeddings = True
 
 # Seed and batch size.
 start_idx = 0
-batch_size = 1                                                         #Kaç resim çıkarılacak
+batch_size = 5                                                         #Kaç resim çıkarılacak
 seeds = [i for i in range(start_idx , start_idx + batch_size, 1)]
 
 # Number of inference steps.
@@ -195,8 +191,8 @@ for count, seed in enumerate(seeds):
 #---------
 # Plot pipeline outputs.
 
-"""""
-def plot_images(images, labels = None):
+
+def plot_images(prompt,images, labels = None):
     N = len(images)
     n_cols = 5
     n_rows = int(np.ceil(N / n_cols))
@@ -207,20 +203,10 @@ def plot_images(images, labels = None):
         if labels is not None:
             plt.title(labels[i])
         plt.imshow(np.array(images[i]))
+        prompt = prompt.lower().replace(" ","")
+        saveImage = cv2.cvtColor(np.array(images[i]),cv2.COLOR_RGB2BGR)
+        cv2.imwrite(f"GeneratedImages/{prompt}{i}.png",saveImage)
         plt.axis(False)
     plt.show()
 
-plot_images(images, seeds[:len(images)])
-"""""
-
-def showImages(images):
-    images[0] = np.array(images[0])
-    images[0] = cv2.cvtColor(images[0], cv2.COLOR_RGB2BGR)
-    cv2.imwrite("GeneratedImages/civitai.jpg", images[0])
-    image = cv2.imread("GeneratedImages/civitai.jpg")
-    cv2.imshow("Image", image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-
-showImages(images)
+plot_images(prompt,images, seeds[:len(images)])
