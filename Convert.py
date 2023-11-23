@@ -3,6 +3,7 @@ from PIL import Image
 import cv2
 import numpy as np
 import svgwrite
+import OpenPotrace
 
 
 def to_bitmap(path,bitmapThresh):
@@ -23,6 +24,7 @@ def to_bitmap(path,bitmapThresh):
     im = Image.fromarray(bitmap.astype(np.uint8))
     im.save('image.bmp')
     print("Bitmap dosyası 'image.bmp' oluşturuldu")
+    return im
 
 
 
@@ -30,6 +32,32 @@ def to_svg_potrace_exe(bitmap_path):
     parametreler = ["potrace.exe", bitmap_path, "-b", "svg"]
     subprocess.run(parametreler)
     print("Bitmap dosyası svg formatına dönüştürüldü")
+
+
+def to_svg_openPotrace(path,bitmapThresh):
+    data = to_bitmap(path,bitmapThresh)
+    bitmap = OpenPotrace.Bitmap(data)
+    path = bitmap.trace()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -57,7 +85,7 @@ def to_svg(image_path):
     print("JPG dosyası başarıyla SVG dosyasına dönüştürüldü.")
 """""
 
-
+"""""
 def svg2png(bytestring=None, *, file_obj=None, url=None, dpi=300,
             parent_width=None, parent_height=None, scale=1, unsafe=False,
             background_color=None, negate_colors=False, invert_images=False,
@@ -68,3 +96,4 @@ def svg2png(bytestring=None, *, file_obj=None, url=None, dpi=300,
         background_color=background_color, negate_colors=negate_colors,
         invert_images=invert_images, unsafe=unsafe, write_to=write_to,
         output_width=output_width, output_height=output_height)
+"""""
