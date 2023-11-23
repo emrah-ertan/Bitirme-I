@@ -5,7 +5,7 @@ import numpy as np
 import svgwrite
 
 
-def to_bitmap(path):
+def to_bitmap(path,bitmapThresh):
     image = cv2.imread(path)
     array_image = np.array(image)
 
@@ -19,7 +19,7 @@ def to_bitmap(path):
     bitmap = list(map(lambda x: 0.299 * x[0] + 0.587 * x[1] + 0.114 * x[2], zip(r, g, b)))
     bitmap = np.array(bitmap).reshape([array_image.shape[0], array_image.shape[1]])
 
-    bitmap = np.dot((bitmap > 63).astype(float), 255)
+    bitmap = np.dot((bitmap > bitmapThresh).astype(float), 255)
     im = Image.fromarray(bitmap.astype(np.uint8))
     im.save('image.bmp')
     print("Bitmap dosyası 'image.bmp' oluşturuldu")
