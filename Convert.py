@@ -2,9 +2,6 @@ import subprocess
 from PIL import Image
 import cv2
 import numpy as np
-import svgwrite
-from torch._C._monitor import data_value_t
-
 import OpenPotrace
 
 
