@@ -3,6 +3,8 @@ from PIL import Image
 import cv2
 import numpy as np
 import svgwrite
+from torch._C._monitor import data_value_t
+
 import OpenPotrace
 
 
@@ -22,7 +24,7 @@ def to_bitmap(path,bitmapThresh):
 
     bitmap = np.dot((bitmap > bitmapThresh).astype(float), 255)
     im = Image.fromarray(bitmap.astype(np.uint8))
-    im.save('image.bmp')
+    im.save('output.bmp')
     print("Bitmap dosyası 'image.bmp' oluşturuldu")
     return im
 
@@ -34,12 +36,20 @@ def to_svg_potrace_exe(bitmap_path):
     print("Bitmap dosyası svg formatına dönüştürüldü")
 
 
-def to_svg_openPotrace(path,bitmapThresh):
+
+
+
+def to_svg_openPotrace(path,bitmapThresh=125):
     data = to_bitmap(path,bitmapThresh)
-    bitmap = OpenPotrace.Bitmap(data)
+    bitmap = OpenPotrace.Bitmap(data,0.5)
     path = bitmap.trace()
+    #print(path)
 
-
+    with open('output.svg', 'w') as file:
+        file.write('<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">\n')
+        for i in path:
+            file.write(f'<path d="{i}" />\n')
+        file.write('</svg>')
 
 
 
