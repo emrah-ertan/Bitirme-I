@@ -22,7 +22,7 @@ def to_bitmap(path,bitmapThresh):
     bitmap = np.dot((bitmap > bitmapThresh).astype(float), 255)
     im = Image.fromarray(bitmap.astype(np.uint8))
     im.save('output.bmp')
-    print("Bitmap dosyası 'image.bmp' oluşturuldu")
+    print("Bitmap dosyası 'output.bmp' oluşturuldu")
     return im
 
 

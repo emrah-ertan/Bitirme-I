@@ -125,7 +125,7 @@ def get_prompt_embeddings(
 prompt = "Tulip pattern"
 
 
-negative_prompt = "rose, white"
+negative_prompt = "white"
 
 
 prompt_embeds, negative_prompt_embeds = get_prompt_embeddings(

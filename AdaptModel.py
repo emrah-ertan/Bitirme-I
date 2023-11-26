@@ -7,7 +7,7 @@ from diffusers.pipelines.stable_diffusion.convert_from_ckpt import download_from
 
 
 #terminal kodu:
-#python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path SafetensorFiles/ChineseLandscapeArt_v10.safetensors --dump_path ChineseLandscapeArt_v10/ --from_safetensors
+#python AdaptModel.py --checkpoint_path SafetensorFiles/ChineseLandscapeArt_v10.safetensors --dump_path ChineseLandscapeArt_v10/ --from_safetensors
 
 
 

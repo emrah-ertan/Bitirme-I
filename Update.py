@@ -34,6 +34,6 @@ def renklendir(svg_path):
                 path.set('fill', _renkBelirle(r,g,b))
                 #print(_renkBelirle(r,g,b))
             # Değiştirilmiş SVG dosyasını kaydet
-            tree.write('colored_converted_image.svg')
+            tree.write('colored_output.svg')
             break
     cv2.destroyAllWindows()
