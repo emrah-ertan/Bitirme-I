@@ -6,7 +6,7 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 
-
+import GenerateCivitai
 
 if torch.cuda.is_available():
     device_name = torch.device("cuda")
@@ -143,12 +143,12 @@ prompt_embeds, negative_prompt_embeds = get_prompt_embeddings(
 use_prompt_embeddings = True
 
 # Seed and batch size.
-start_idx = 0
+start_idx = 0                                                          #Random oluşturulacak
 batch_size = 5                                                         #Kaç resim çıkarılacak
 seeds = [i for i in range(start_idx , start_idx + batch_size, 1)]
 
 # Number of inference steps.
-num_inference_steps = 20                                             #Kaç adımda çıkarılacak
+num_inference_steps = 20                                               #Kaç adımda çıkarılacak
 
 # Guidance scale.
 guidance_scale = 7

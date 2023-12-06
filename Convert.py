@@ -4,25 +4,22 @@ import cv2
 import numpy as np
 import OpenPotrace
 
-
 def to_bitmap(path,bitmapThresh):
     image = cv2.imread(path)
     array_image = np.array(image)
 
-    # Split the three channels
     r, g, b = np.split(array_image, 3, axis=2)
     r = r.reshape(-1)
     g = r.reshape(-1)
     b = r.reshape(-1)
 
-    # Standard RGB to grayscale
     bitmap = list(map(lambda x: 0.299 * x[0] + 0.587 * x[1] + 0.114 * x[2], zip(r, g, b)))
     bitmap = np.array(bitmap).reshape([array_image.shape[0], array_image.shape[1]])
 
     bitmap = np.dot((bitmap > bitmapThresh).astype(float), 255)
     im = Image.fromarray(bitmap.astype(np.uint8))
-    im.save('output.bmp')
-    print("Bitmap dosyası 'output.bmp' oluşturuldu")
+    #im.save('output.bmp')
+    #print("Bitmap dosyası 'output.bmp' oluşturuldu")
     return im
 
 
@@ -34,20 +31,36 @@ def to_svg_potrace_exe(bitmap_path):
 
 
 
+def to_svg_openPotrace(path):
+    try:
+        image = Image.open(path)
+    except IOError:
+        print("Image (%s) could not be loaded." % path)
+        return
 
-
-def to_svg_openPotrace(path,bitmapThresh=125):
-    data = to_bitmap(path,bitmapThresh)
-    bitmap = OpenPotrace.Bitmap(data,0.5)
-    path = bitmap.trace()
-    #print(path)
-
-    with open('output.svg', 'w') as file:
-        file.write('<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">\n')
-        for i in path:
-            file.write(f'<path d="{i}" />\n')
-        file.write('</svg>')
-
+    bm = OpenPotrace.Bitmap(image, blacklevel=0.5)
+    # bm.invert()
+    plist = bm.trace()
+    with open(f"{path[:-4]}.svg", "w") as fp:
+        fp.write(
+            f'''<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{image.width}" height="{image.height}" viewBox="0 0 {image.width} {image.height}">''')
+        parts = []
+        for curve in plist:
+            fs = curve.start_point
+            parts.append(f"M{fs.x},{fs.y}")
+            for segment in curve.segments:
+                if segment.is_corner:
+                    a = segment.c
+                    b = segment.end_point
+                    parts.append(f"L{a.x},{a.y}L{b.x},{b.y}")
+                else:
+                    a = segment.c1
+                    b = segment.c2
+                    c = segment.end_point
+                    parts.append(f"C{a.x},{a.y} {b.x},{b.y} {c.x},{c.y}")
+            parts.append("z")
+        fp.write(f'<path stroke="none" fill="black" fill-rule="evenodd" d="{"".join(parts)}"/>')
+        fp.write("</svg>")
 
 
 
@@ -91,6 +104,8 @@ def to_svg(image_path):
 
     print("JPG dosyası başarıyla SVG dosyasına dönüştürüldü.")
 """""
+
+
 
 """""
 def svg2png(bytestring=None, *, file_obj=None, url=None, dpi=300,
