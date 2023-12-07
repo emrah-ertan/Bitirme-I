@@ -1,6 +1,4 @@
 #import GenerateCivitai
-import Convert
-Convert.to_svg_openPotrace("GeneratedImages/leaf.jpg")
 """""
 import Generate
 import Convert
