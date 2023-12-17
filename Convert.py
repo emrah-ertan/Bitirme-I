@@ -81,6 +81,7 @@ def to_svg_openPotrace(path):
 
 
 
+
 """""
 def to_svg(image_path):
 

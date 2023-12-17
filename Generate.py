@@ -28,7 +28,6 @@ image_gen_model = StableDiffusionPipeline.from_pretrained(CFG.image_gen_model_id
 image_gen_model = image_gen_model.to(CFG.device)
 
 
-
 def generateImage(prompt,model):
     image = model(
         prompt, num_inference_steps = CFG.image_gen_steps,

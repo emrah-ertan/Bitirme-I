@@ -122,7 +122,7 @@ def get_prompt_embeddings(
 
 
 #----------
-prompt = "Tulip pattern"
+prompt = "Leopard pattern"
 
 
 negative_prompt = "white"

@@ -25,15 +25,14 @@ def renklendir(svg_path):
         b = cv2.getTrackbarPos("B", "resim")
         img[:] = [b, g, r]
         if (cv2.waitKey(1) & 0xFF == ord("q")):
-            # SVG dosyasını aç
+
             tree = ET.parse(svg_path)
             root = tree.getroot()
-            # Tüm "path" öğelerini bul
+
             paths = root.findall('.//{http://www.w3.org/2000/svg}path')  # path öğelerini SVG dosyasına göre bul
             for path in paths:
                 path.set('fill', _renkBelirle(r,g,b))
-                #print(_renkBelirle(r,g,b))
-            # Değiştirilmiş SVG dosyasını kaydet
+
             tree.write('colored_output.svg')
             break
     cv2.destroyAllWindows()

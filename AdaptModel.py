@@ -10,7 +10,6 @@ from diffusers.pipelines.stable_diffusion.convert_from_ckpt import download_from
 #python AdaptModel.py --checkpoint_path SafetensorFiles/ChineseLandscapeArt_v10.safetensors --dump_path ChineseLandscapeArt_v10/ --from_safetensors
 
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 

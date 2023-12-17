@@ -20,7 +20,6 @@ Convert.to_bitmap("GeneratedImages/"+user_input+".jpg")
 Convert.to_svg_potrace_exe("image.bmp")
 Update.renklendir(image.svg)
 
-
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 """""
