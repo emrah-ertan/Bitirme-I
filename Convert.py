@@ -4,33 +4,6 @@ import cv2
 import numpy as np
 import OpenPotrace
 
-def to_bitmap(path,bitmapThresh):
-    image = cv2.imread(path)
-    array_image = np.array(image)
-
-    r, g, b = np.split(array_image, 3, axis=2)
-    r = r.reshape(-1)
-    g = r.reshape(-1)
-    b = r.reshape(-1)
-
-    bitmap = list(map(lambda x: 0.299 * x[0] + 0.587 * x[1] + 0.114 * x[2], zip(r, g, b)))
-    bitmap = np.array(bitmap).reshape([array_image.shape[0], array_image.shape[1]])
-
-    bitmap = np.dot((bitmap > bitmapThresh).astype(float), 255)
-    im = Image.fromarray(bitmap.astype(np.uint8))
-    #im.save('output.bmp')
-    #print("Bitmap dosyası 'output.bmp' oluşturuldu")
-    return im
-
-
-
-def to_svg_potrace_exe(bitmap_path):
-    parametreler = ["potrace.exe", bitmap_path, "-b", "svg"]
-    subprocess.run(parametreler)
-    print("Bitmap dosyası svg formatına dönüştürüldü")
-
-
-
 def to_svg_openPotrace(path):
     try:
         image = Image.open(path)
@@ -61,6 +34,39 @@ def to_svg_openPotrace(path):
             parts.append("z")
         fp.write(f'<path stroke="none" fill="black" fill-rule="evenodd" d="{"".join(parts)}"/>')
         fp.write("</svg>")
+
+
+
+
+
+
+
+def to_bitmap(path,bitmapThresh):
+    image = cv2.imread(path)
+    array_image = np.array(image)
+
+    r, g, b = np.split(array_image, 3, axis=2)
+    r = r.reshape(-1)
+    g = r.reshape(-1)
+    b = r.reshape(-1)
+
+    bitmap = list(map(lambda x: 0.299 * x[0] + 0.587 * x[1] + 0.114 * x[2], zip(r, g, b)))
+    bitmap = np.array(bitmap).reshape([array_image.shape[0], array_image.shape[1]])
+
+    bitmap = np.dot((bitmap > bitmapThresh).astype(float), 255)
+    im = Image.fromarray(bitmap.astype(np.uint8))
+    #im.save('output.bmp')
+    return im
+
+
+
+def to_svg_potrace_exe(bitmap_path):
+    parametreler = ["potrace.exe", bitmap_path, "-b", "svg"]
+    subprocess.run(parametreler)
+
+
+
+
 
 
 
