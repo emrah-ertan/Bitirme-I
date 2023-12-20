@@ -26,7 +26,7 @@ for index,image in enumerate(images):
 
 
 """""
-#IMAGE DEĞİL URL DÖNDÜRME
+#IMAGE URL DÖNDÜRME
 
 imageUrl = response['data'][0]['url']
 print(imageUrl)
