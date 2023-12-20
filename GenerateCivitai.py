@@ -6,7 +6,6 @@ import torch
 import matplotlib.pyplot as plt
 import numpy as np
 
-import GenerateCivitai
 
 if torch.cuda.is_available():
     device_name = torch.device("cuda")
