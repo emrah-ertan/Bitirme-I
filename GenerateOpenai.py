@@ -10,8 +10,6 @@ response_format = "b64_json"
 
 response = openai.Image.create(prompt,n,size,response_format = response_format)
 
-
-
 #RESİM KAYDETME
 images = []
 for image in response['data']:

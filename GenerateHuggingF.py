@@ -1,8 +1,12 @@
 import torch
 from diffusers import StableDiffusionPipeline
+import cv2
+import numpy as np
 
 
 hugging_face_key = open("HUGGING_FACE_KEY", "r").read()
+prompt = "Flower pattern"
+
 
 class CFG:
     if(torch.cuda.is_available()):
@@ -14,9 +18,7 @@ class CFG:
     seed = 7
     generator = torch.Generator(device).manual_seed(seed)
     image_gen_steps = 5
-    #image_gen_model_id = "ChineseLandscapeArt_v10"
-    #image_gen_model_id = "CompVis/stable-diffusion-v1-4"
-    #image_gen_model_id = "stabilityai/stable-diffusion-2"
+    image_gen_model_id = "CompVis/stable-diffusion-v1-4"
     image_gen_size =(256,256)
     image_gen_guidance_scale = 9
     prompt_gen_model_id = "gpt2"
@@ -37,3 +39,12 @@ def generateImage(prompt,model):
 
     image = image.resize(CFG.image_gen_size)
     return image
+
+
+image = generateImage(prompt,image_gen_model)
+image = cv2.cvtColor(np.array(image),cv2.COLOR_RGB2BGR)
+
+
+cv2.imshow("Generated Image",image)
+user_input = prompt.replace(" ","")
+cv2.imwrite("GeneratedImages/"+user_input+".png",image)
