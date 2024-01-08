@@ -143,7 +143,7 @@ use_prompt_embeddings = True
 
 # Seed and batch size.
 start_idx = 0                                                          #Random oluşturulacak
-batch_size = 5                                                         #Kaç resim çıkarılacak
+batch_size = 1                                                         #Kaç resim çıkarılacak
 seeds = [i for i in range(start_idx , start_idx + batch_size, 1)]
 
 # Number of inference steps.
@@ -204,8 +204,8 @@ def plot_images(prompt,images, labels = None):
         plt.imshow(np.array(images[i]))
         prompt = prompt.lower().replace(" ","")
         saveImage = cv2.cvtColor(np.array(images[i]),cv2.COLOR_RGB2BGR)
-        cv2.imwrite(f"GeneratedImages/{prompt}{i}.png",saveImage)
+        cv2.imwrite(f"GeneratedImages/image{i}.png",saveImage)
         plt.axis(False)
-    plt.show()
+    #plt.show()
 
 plot_images(prompt,images, seeds[:len(images)])

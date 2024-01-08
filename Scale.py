@@ -6,8 +6,6 @@ def svg(svg_path,scale_x,scale_y):
     tree = ET.parse(svg_path)
     root = tree.getroot()
 
-    #olcek = 7
-
     for element in root.iter():
         if 'x' in element.attrib and 'y' in element.attrib:
             element.set('x', str(float(element.get('x')[:3]) * scale_x))
@@ -18,5 +16,5 @@ def svg(svg_path,scale_x,scale_y):
             element.set('height', str(float(element.get('height')[:3]) * scale_y))
 
     # Ölçeklendirilmiş SVG dosyasını kaydet
-    tree.write("scaled_vector_graphic.svg")
+    tree.write("vector_graphic_scaled.svg")
     print("SVG dosyası yeniden ölçeklendirildi")

@@ -8,7 +8,7 @@ def to_svg_openPotrace(path):
     bm = potrace.Bitmap(image, blacklevel=0.5)
     # bm.invert()
     plist = bm.trace()
-    with open(f"{path[:-4]}.svg", "w") as fp:
+    with open(f"vector_graphic.svg", "w") as fp:
         fp.write(
             f'''<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{image.width}" height="{image.height}" viewBox="0 0 {image.width} {image.height}">''')
         parts = []
@@ -28,3 +28,4 @@ def to_svg_openPotrace(path):
             parts.append("z")
         fp.write(f'<path stroke="none" fill="black" fill-rule="evenodd" d="{"".join(parts)}"/>')
         fp.write("</svg>")
+    print("SVG Dosyası oluşturuldu")
