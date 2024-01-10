@@ -9,7 +9,7 @@ prompt = userPrompt
 hugging_face_key = open("HUGGING_FACE_KEY", "r").read()
 
 from main import adimSayisi
-
+from main import mainSeed
 
 class CFG:
     if(torch.cuda.is_available()):
@@ -18,7 +18,7 @@ class CFG:
         print("CUDA Bulunamadı! CPU Kullanılıyor...")
         device = "cpu"
 
-    seed = int(np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+    seed = int(mainSeed)
     generator = torch.Generator(device).manual_seed(seed)
     image_gen_steps = adimSayisi
     image_gen_model_id = "CompVis/stable-diffusion-v1-4"
@@ -28,7 +28,7 @@ class CFG:
     prompt_dataset_size = 6
     prompt_max_length = 27
 
-image_gen_model = StableDiffusionPipeline.from_pretrained(CFG.image_gen_model_id,torch_dtype=torch.float32,
+image_gen_model = StableDiffusionPipeline.from_pretrained(CFG.image_gen_model_id,torch_dtype=torch.float16,
                     revision="fp16",use_auth_token=hugging_face_key, safety_checker=None, guidance_scale=9)
 image_gen_model = image_gen_model.to(CFG.device)
 

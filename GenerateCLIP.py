@@ -26,7 +26,6 @@ f = transforms.Compose([
 m = clip.load(clip_model, jit=False)[0].eval().requires_grad_(False).to(device)
 embedding = m.encode_text(clip.tokenize(prompt).to(device))
 
-
 def total_variation_loss(img):
     yv = torch.pow(img[:,:,1:,:]-img[:,:,:-1,:], 2).sum()
     xv = torch.pow(img[:,:,:,1:]-img[:,:,:,:-1], 2).sum()

@@ -9,7 +9,7 @@ import numpy as np
 
 if torch.cuda.is_available():
     device_name = torch.device("cuda")
-    torch_dtype = torch.float32
+    torch_dtype = torch.float16
 else:
     device_name = torch.device("cpu")
     torch_dtype = torch.float32
@@ -143,10 +143,12 @@ prompt_embeds, negative_prompt_embeds = get_prompt_embeddings(
 # use the prompt strings.
 use_prompt_embeddings = True
 
+from main import mainSeed
+
 # Seed and batch size.
 start_idx = 0                                                          #Random oluşturulacak
 batch_size = 1                                                         #Kaç resim çıkarılacak
-seeds = [np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])]
+seeds = [mainSeed]
 
 from main import adimSayisi
 

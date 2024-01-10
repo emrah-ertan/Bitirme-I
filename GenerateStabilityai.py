@@ -31,10 +31,11 @@ stability_api = client.StabilityInference(
 
 
 from main import adimSayisi
+from main import mainSeed
 
 answers = stability_api.generate(
     prompt= userPrompt,
-    seed=[np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])],
+    seed=[mainSeed],
     steps=adimSayisi ,
     cfg_scale=8.0,
     width=512,
