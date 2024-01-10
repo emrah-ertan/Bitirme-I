@@ -1,12 +1,16 @@
 import numpy as np
-
 import Convert
+import Scale
 import os
 
 userPrompt = "Tulip Pattern"
 adimSayisi = 1
+
 blackLevel = 0.5
-olcek = 2
+olcek = 0.5
+dosya = open("olcek", "w").write(str(olcek))
+
+
 mainSeed = np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
@@ -45,8 +49,13 @@ def run():
             pass"""""
 
 def indir():
-    Convert.to_svg_openPotrace("GeneratedImages/imageStablev15.png",blackLevel)
+    Convert.to_svg_openPotrace("GeneratedImages/imageStablev15.png", blackLevel)
     Convert.to_svg_openPotrace("GeneratedImages/imageStablev14.png", blackLevel)
-    Convert.to_svg_openPotrace("GeneratedImages/imageStability.png", blackLevel)
-    Convert.to_svg_openPotrace("GeneratedImages/imageCLIP.png", blackLevel)
-    Convert.to_svg_openPotrace("GenerateImages/imageStablev15ClipSkip.png",blackLevel)
+    #Convert.to_svg_openPotrace("GeneratedImages/imageStability.png", blackLevel)
+    #Convert.to_svg_openPotrace("GeneratedImages/imageCLIP.png", blackLevel)
+    #Convert.to_svg_openPotrace("GenerateImages/imageStablev15ClipSkip.png",blackLevel)
+
+    Scale.svg("GeneratedImages/vector_graphicStablev15.svg")
+    Scale.svg("GeneratedImages/vector_graphicStablev14.svg")
+
+indir()

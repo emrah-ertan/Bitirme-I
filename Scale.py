@@ -1,7 +1,9 @@
 import xml.etree.ElementTree as ET
 
+olcek =open("olcek", "r").read()
+olcek = float(olcek)
 
-def svg(svg_path,olcek):
+def svg(svg_path):
     tree = ET.parse(svg_path)
     root = tree.getroot()
 
@@ -15,5 +17,5 @@ def svg(svg_path,olcek):
             element.set('height', str(float(element.get('height')[:3]) * olcek))
 
     # Ölçeklendirilmiş SVG dosyasını kaydet
-    tree.write("vector_graphic_scaled.svg")
+    tree.write(f"GeneratedImages/vector_graphic_scaled{svg_path[30:-4]}.svg")
     print("SVG dosyası yeniden ölçeklendirildi")
