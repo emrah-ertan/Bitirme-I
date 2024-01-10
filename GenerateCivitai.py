@@ -9,7 +9,7 @@ import numpy as np
 
 if torch.cuda.is_available():
     device_name = torch.device("cuda")
-    torch_dtype = torch.float16
+    torch_dtype = torch.float32
 else:
     device_name = torch.device("cpu")
     torch_dtype = torch.float32
@@ -121,10 +121,12 @@ def get_prompt_embeddings(
 
 
 #----------
-prompt = "Flower pattern"
+from main import userPrompt
+
+prompt = userPrompt
 
 
-negative_prompt = "white"
+negative_prompt = ""
 
 
 prompt_embeds, negative_prompt_embeds = get_prompt_embeddings(
@@ -144,16 +146,17 @@ use_prompt_embeddings = True
 # Seed and batch size.
 start_idx = 0                                                          #Random oluşturulacak
 batch_size = 1                                                         #Kaç resim çıkarılacak
-seeds = [i for i in range(start_idx , start_idx + batch_size, 1)]
+seeds = [np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])]
 
-# Number of inference steps.
-num_inference_steps = 20                                               #Kaç adımda çıkarılacak
+from main import adimSayisi
+
+num_inference_steps = adimSayisi                                              #Kaç adımda çıkarılacak
 
 # Guidance scale.
 guidance_scale = 7
 
 # Image dimensions - limited to GPU memory.
-width  = 768
+width  = 512
 height = 512
 
 images = []
@@ -191,7 +194,7 @@ for count, seed in enumerate(seeds):
 # Plot pipeline outputs.
 
 
-def plot_images(prompt,images, labels = None):
+def generateImage(prompt,images, labels = None):
     N = len(images)
     n_cols = 5
     n_rows = int(np.ceil(N / n_cols))
@@ -204,8 +207,9 @@ def plot_images(prompt,images, labels = None):
         plt.imshow(np.array(images[i]))
         prompt = prompt.lower().replace(" ","")
         saveImage = cv2.cvtColor(np.array(images[i]),cv2.COLOR_RGB2BGR)
-        cv2.imwrite(f"GeneratedImages/image{i}.png",saveImage)
+        cv2.imwrite(f"GeneratedImages/imageStablev15.png",saveImage)
+
         plt.axis(False)
     #plt.show()
 
-plot_images(prompt,images, seeds[:len(images)])
+generateImage(prompt,images, seeds[:len(images)])

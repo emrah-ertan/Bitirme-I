@@ -14,8 +14,8 @@ model = BigGAN.from_pretrained('biggan-deep-256')
 
 # Prepare a input
 truncation = 0.4
-class_vector = one_hot_from_names([prompt], batch_size=3)
-noise_vector = truncated_noise_sample(truncation=truncation, batch_size=3)
+class_vector = one_hot_from_names([prompt], batch_size=1)
+noise_vector = truncated_noise_sample(truncation=truncation, batch_size=1)
 
 # All in tensors
 noise_vector = torch.from_numpy(noise_vector)

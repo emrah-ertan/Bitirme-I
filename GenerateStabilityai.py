@@ -1,9 +1,14 @@
 import os
 import io
 import warnings
+
+import numpy as np
 from PIL import Image
 from stability_sdk import client
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
+from main import userPrompt
+
+
 
 stability_key = open("STABILITY_KEY", "r").read()
 
@@ -25,13 +30,12 @@ stability_api = client.StabilityInference(
 
 
 
-userPrompt = "Tulip Pattern"
-
+from main import adimSayisi
 
 answers = stability_api.generate(
     prompt= userPrompt,
-    seed=7,
-    steps=50,
+    seed=[np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])],
+    steps=adimSayisi ,
     cfg_scale=8.0,
     width=512,
     height=512,
@@ -47,4 +51,4 @@ for resp in answers:
                 "Please modify the prompt and try again.")
         if artifact.type == generation.ARTIFACT_IMAGE:
             img = Image.open(io.BytesIO(artifact.binary))
-            img.save(str(artifact.seed)+ ".png")
+            img.save("GeneratedImages/imageStability.png")
