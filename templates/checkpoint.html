@@ -1,0 +1,165 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Projesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #progress-bar-1, #progress-bar-2 {
+            width: 80%;
+            margin-top: 10px;
+        }
+        #scale-input {
+            margin-top: 10px;
+        }
+        /* İki formu yan yana yerleştirmek için ana container */
+        .forms-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Form containerlar arasında boşluk bırakmak için */
+        }
+        /* Her formu eşit genişlikte olacak şekilde ayarlamak için */
+        .form-container {
+            flex: 1;
+            padding: 0 10px;
+        }
+        /* Resimleri göstermek için container */
+        .image-container {
+            margin-top: 20px;
+        }
+        /* Resimlerin üzerine gelindiğinde büyüme efekti */
+        .project-image {
+            transition: transform 0.2s;
+        }
+        .project-image:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Flask Projesi</h1>
+
+    <!-- Form container -->
+    <div class="form-container">
+        <form onsubmit="return false;" id="mainForm">
+            <!-- InputText -->
+            <div class="mb-3">
+                <label for="inputText" class="form-label">Input Text Kutusu:</label>
+                <input type="text" id="inputText" name="userPrompt" class="form-control" placeholder="Bir metin girin" required>
+            </div>
+            <!-- Adım Sayısı -->
+            <div class="mb-3">
+                <label for="stepCount" class="form-label">0-100 Arası Adım Sayısı:</label>
+                <input type="number" id="stepCount" name="stepCount" class="form-control" min="0" max="100" value="0" required>
+            </div>
+            <!-- BlackLevel -->
+            <div class="mb-3">
+                <label for="blackLevel" class="form-label">0-10 Arası BlackLevel:</label>
+                <input type="range" id="blackLevel" name="blackLevelValue" class="form-range" min="0" max="10" step="0.1" value="0">
+            </div>
+            <!-- Ölçek Değeri -->
+            <div class="mb-3">
+                <label for="scale-input" class="form-label">Ölçek Değeri:</label>
+                <input type="range" id="scale-input" name="scaleValue" class="form-range" min="0" max="1" step="0.01" value="0">
+            </div>
+            <!-- Generate butonu -->
+            <button type="button" onclick="process()" class="btn btn-primary">Generate</button>
+        </form>
+        <!-- Download butonu -->
+        <button type="button" onclick="download()" class="btn btn-success">Download</button>
+    </div>
+
+    <!-- Resimleri göstermek için container -->
+    <div class="image-container">
+        <!-- İki satır ve üç sütunlu bir grid container -->
+        <div class="row row-cols-1 row-cols-md-3">
+            <!-- İlk sütun -->
+            <div class="col">
+                <!-- Birinci resim -->
+                <img src="{{ url_for('static', filename='imageStablev15.png') }}" class="img-fluid project-image" alt="">
+            </div>
+            <!-- İkinci sütun -->
+            <div class="col">
+                <!-- İkinci resim -->
+                <img src="{{ url_for('static', filename='imageStablev15ClipSkip.png') }}" class="img-fluid project-image" alt="">
+            </div>
+            <!-- Üçüncü sütun -->
+            <div class="col">
+                <!-- Üçüncü resim -->
+                <img src="{{ url_for('static', filename='imageStablev14.png') }}" class="img-fluid project-image" alt="">
+            </div>
+        </div>
+        <!-- İkinci satır -->
+        <div class="row row-cols-1 row-cols-md-3">
+            <!-- Dördüncü sütun -->
+            <div class="col">
+                <!-- Dördüncü resim -->
+                <img src="{{ url_for('static', filename='imageStability.png') }}" class="img-fluid project-image" alt="">
+            </div>
+            <!-- Beşinci sütun -->
+            <div class="col">
+                <!-- Beşinci resim -->
+                <img src="{{ url_for('static', filename='imageKANDINSKY.png') }}" class="img-fluid project-image" alt="">
+            </div>
+            <!-- Altıncı sütun -->
+            <div class="col">
+                <!-- Altıncı resim -->
+                <img src="{{ url_for('static', filename='imageMiniDalle2.png') }}" class="img-fluid project-image" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // process ve download fonksiyonları buraya gelecek
+        function process() {
+            // InputText, Adım Sayısı, Ölçek ve BlackLevel değerlerini al
+            var userPromptValue = document.getElementById("inputText").value;
+            var stepCountValue = document.getElementById("stepCount").value;
+            var scaleValue = document.getElementById("scale-input").value;
+            var blackLevelValue = document.getElementById("blackLevel").value;
+
+            // main.py içindeki run ve indir fonksiyonlarını çalıştır
+            fetch('/process', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userPrompt: userPromptValue,
+                    stepCount: stepCountValue,
+                    scaleValue: scaleValue,
+                    blackLevelValue: blackLevelValue,
+                }),
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function download() {
+        fetch('/download', {
+            method: 'POST',
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(new Blob([blob]));
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'GeneratedImages.zip';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>
+</body>
+</html>
