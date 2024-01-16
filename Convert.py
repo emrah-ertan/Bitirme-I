@@ -9,7 +9,7 @@ def to_svg_openPotrace(path,blackLevel):
 
     image = Image.open(path)
 
-    bm = potrace.Bitmap(image, blacklevel=blackLevel)
+    bm = potrace.Bitmap(image, blacklevel=float(blackLevel))
     # bm.invert()
     plist = bm.trace()
     with open(f"GeneratedImages/vector_graphic{path[21:-4]}.svg", "w") as fp:

@@ -20,7 +20,7 @@ class CFG:
 
     seed = int(mainSeed)
     generator = torch.Generator(device).manual_seed(seed)
-    image_gen_steps = adimSayisi
+    image_gen_steps = int(adimSayisi)
     image_gen_model_id = "CompVis/stable-diffusion-v1-4"
     image_gen_size =(512,512)
     image_gen_guidance_scale = 9

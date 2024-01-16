@@ -152,7 +152,7 @@ seeds = [mainSeed]
 
 from main import adimSayisi
 
-num_inference_steps = adimSayisi                                              #Kaç adımda çıkarılacak
+num_inference_steps = int(adimSayisi)                                              #Kaç adımda çıkarılacak
 
 # Guidance scale.
 guidance_scale = 7
