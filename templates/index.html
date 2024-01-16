@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Projesi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
             padding-top: 70px; /* Navbar yüksekliği kadar bir üst boşluk bırak */
@@ -62,15 +63,15 @@
 /* Generate butonu animasyonu */
     @keyframes buttonClick {
         0% {
-            background-color: #007bff;
+            background-color: #11BCF3;
             box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
         50% {
-            background-color: #0056b3;
+            background-color: #11BCF3;
             box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
         }
         100% {
-            background-color: #007bff;
+            background-color: #11BCF3;
             box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
     }
@@ -80,12 +81,16 @@
     }
     #downloadButton:active{
         animation: buttonClick 0.5s ease;
+
+
     </style>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #8B0000;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #11BCF3;">
   <div class="container-fluid">
-    <a href="https://www.github.com/emrah-ertan/Bitirme-I" class="navbar-brand" style="color: #FFFFFF;">GitHub</a>
+    <a href="https://www.github.com/emrah-ertan/Bitirme-I" class="navbar-brand" style="color: #000000;">
+      GitHub
+    </a>
   </div>
 </nav>
 
@@ -115,10 +120,10 @@
                 <input type="range" id="scale-input" name="scaleValue" class="form-range" min="0.5" max="5" step="0.5" value="0">
             </div>
             <!-- Generate butonu -->
-            <button type="button" onclick="process()" class="btn btn-primary" id="generateButton">Generate</button>
+            <button type="button" onclick="process()" class="btn btn-dark" id="generateButton"><i class="fas fa-cogs"></i> Generate</button>
         </form>
         <!-- Download butonu -->
-        <button type="button" onclick="download()" class="btn btn-success mt-3" id="downloadButton">Download</button>
+        <button type="button" onclick="download()" class="btn btn-dark mt-3" id="downloadButton"><i class="fas fa-download"></i> Download</button>
     </div>
 </div>
 
