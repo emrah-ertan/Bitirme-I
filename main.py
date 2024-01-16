@@ -133,5 +133,6 @@ def indir():
         Scale.svg("GeneratedImages/vector_graphicMiniDalle2.svg")
 
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen blackLevel: {blackLevel}")
+
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen ölçek: {olcek}")
     return 1
