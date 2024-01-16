@@ -8,11 +8,11 @@ from main import adimSayisi
 
 device ='cuda'
 cutn =  16
-shape = (256, 256)
+shape = (512, 512)
 lr = 0.03
-steps = adimSayisi * 100
+steps = int(adimSayisi) * 100
 clip_model = "ViT-B/32"
-prompt = userPrompt
+prompt = str(userPrompt)
 
 image = torch.rand((1, 3, shape[0], shape[1]), device=device, requires_grad=True)
 opt = torch.optim.Adam((image,), lr)

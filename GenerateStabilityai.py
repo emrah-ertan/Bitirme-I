@@ -34,9 +34,9 @@ from main import adimSayisi
 from main import mainSeed
 
 answers = stability_api.generate(
-    prompt= userPrompt,
+    prompt= str(userPrompt),
     seed=[mainSeed],
-    steps=adimSayisi ,
+    steps=int(adimSayisi),
     cfg_scale=8.0,
     width=512,
     height=512,

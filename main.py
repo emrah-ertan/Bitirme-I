@@ -19,7 +19,7 @@ def run():
     #Mevcut Dosyaların Silinmesi
 
     #png dosyalarını sil
-    """""if os.path.exists("GeneratedImages/imageStablev15.png"):
+    if os.path.exists("GeneratedImages/imageStablev15.png"):
         os.remove("GeneratedImages/imageStablev15.png")
     if os.path.exists("GeneratedImages/imageStablev15ClipSkip.png"):
         os.remove("GeneratedImages/imageStablev15ClipSkip.png")
@@ -58,11 +58,11 @@ def run():
     if os.path.exists("GeneratedImages/vector_graphic_scaledKANDINSKY.svg"):
         os.remove("GeneratedImages/vector_graphic_scaledKANDINSKY.svg")
     if os.path.exists("GeneratedImages/vector_graphic_scaledMiniDalle2.svg"):
-        os.remove("GeneratedImages/vector_graphic_scaledMiniDalle2.svg")"""""
+        os.remove("GeneratedImages/vector_graphic_scaledMiniDalle2.svg")
 
 
     #Mevcut dosyalar silindikten sonra yeni dosyaların oluşturulması
-    """""import GenerateCivitai
+    import GenerateCivitai
     while True:
         if os.path.exists("GeneratedImages/imageStablev15.png"):
             break
@@ -97,7 +97,7 @@ def run():
         if os.path.exists("GeneratedImages/imageMiniDalle2.png"):
             break
         else:
-            continue"""""
+            continue
     print(f"Main.py run() fonksiyonu çalıştı. Gelen prompt: {userPrompt}")
     print(f"Main.py run() fonksiyonu çalıştı. Gelen adım sayısı: {adimSayisi}")
     print(f"Dönüş değeri 1 olarak belirlendi ve döndürülüyor")
@@ -105,7 +105,7 @@ def run():
 
 
 def indir():
-    """""if os.path.exists("GeneratedImages/imageStablev15.png"):
+    if os.path.exists("GeneratedImages/imageStablev15.png"):
         Convert.to_svg_openPotrace("GeneratedImages/imageStablev15.png", blackLevel)
     if os.path.exists("GeneratedImages/imageStablev15ClipSkip.png"):
         Convert.to_svg_openPotrace("GeneratedImages/imageStablev15ClipSkip.png",blackLevel)
@@ -130,9 +130,9 @@ def indir():
     if os.path.exists("GeneratedImages/vector_graphicKANDINSKY.svg"):
         Scale.svg("GeneratedImages/vector_graphicKANDINSKY.svg")
     if os.path.exists("GeneratedImages/vector_graphicMiniDalle2.svg"):
-        Scale.svg("GeneratedImages/vector_graphicMiniDalle2.svg")"""""
+        Scale.svg("GeneratedImages/vector_graphicMiniDalle2.svg")
 
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen blackLevel: {blackLevel}")
-    print(f"Main.py indir() fonksiyonu çalıştı. Gelen ölçek: {olcek}")
 
+    print(f"Main.py indir() fonksiyonu çalıştı. Gelen ölçek: {olcek}")
     return 1
