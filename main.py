@@ -134,5 +134,4 @@ def indir():
 
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen blackLevel: {blackLevel}")
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen ölçek: {olcek}")
-
     return 1
