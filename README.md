@@ -74,7 +74,7 @@ Aşağıda, web uygulamamızda kullanılan görüntü üretme yöntemlerinin ör
 ![Donut-10](images/donut.png)
 ![Donut-10](images/donut2.png)
 
-**Prompt: Cotton candy clouds | Adım Sayısı: 5**
+**Prompt: Cotton candy clouds | Adım Sayısı: 7**
 
 ![CottonCandy-5](images/cloud.png)
 ![CottonCandy-5](images/cloud2.png)
