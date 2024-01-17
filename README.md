@@ -45,7 +45,7 @@ Görüntü üretimi için gerekli ilk madde, çalışmanın yapılabilmesi için
 
 ### Stable Diffusion
 
-Stable Diffusion, metin ve benzersiz görüntü üretimi amacıyla oluşturulmuş bir üretici yapay zeka modelidir. Prensipte, difüzyon modelleri bir görüntüyü kodlamak için Gauss gürültüsünü kullanır. Ardından görüntüyü yeniden oluşturmak için bir ters difüzyon işlemi ile birlikte bir gürültü öngörücü kullanırlar. Çeşitlilik maksadıyla bu yöntemi kullanan birden fazla eğitilmiş model kullanılmıştır. Bu yöntem için kullandığımız modeller “stable-diffusion-v1-4” ve “stable-diffusion-v1-5” modelleridir. Kullandığımız model [burada](https://github.com](https://civitai.com/models/120298/chinese-landscape-art) yer almaktadır.
+Stable Diffusion, metin ve benzersiz görüntü üretimi amacıyla oluşturulmuş bir üretici yapay zeka modelidir. Prensipte, difüzyon modelleri bir görüntüyü kodlamak için Gauss gürültüsünü kullanır. Ardından görüntüyü yeniden oluşturmak için bir ters difüzyon işlemi ile birlikte bir gürültü öngörücü kullanırlar. Çeşitlilik maksadıyla bu yöntemi kullanan birden fazla eğitilmiş model kullanılmıştır. Bu yöntem için kullandığımız modeller “stable-diffusion-v1-4” ve “stable-diffusion-v1-5” modelleridir. Kullandığımız model [burada]((https://civitai.com/models/120298/chinese-landscape-art) yer almaktadır.
 
 
 ### Stable Diffusion XL
