@@ -66,15 +66,18 @@ Aşağıda, web uygulamamızda kullanılan görüntü üretme yöntemlerinin ör
 
 **Prompt: Waterfall | Adım Sayısı: 100**
 
-![Waterfall-100](images/waterfall_100.png)
+![Waterfall-100](images/waterfall.png)
+![Waterfall-100](images/waterfall1.png)
 
 **Prompt: Donut with Strawberry | Adım Sayısı: 10**
 
-![Donut-10](images/donut_10.png)
+![Donut-10](images/donut.png)
+![Donut-10](images/donut2.png)
 
 **Prompt: Cotton candy clouds | Adım Sayısı: 5**
 
-![CottonCandy-5](images/cotton_candy_7.png)
+![CottonCandy-5](images/cloud.png)
+![CottonCandy-5](images/cloud2.png)
 
 ## Sonuç
 
