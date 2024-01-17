@@ -45,7 +45,8 @@ Görüntü üretimi için gerekli ilk madde, çalışmanın yapılabilmesi için
 
 ### Stable Diffusion
 
-Stable Diffusion, metin ve benzersiz görüntü üretimi amacıyla oluşturulmuş bir üretici yapay zeka modelidir. Prensipte, difüzyon modelleri bir görüntüyü kodlamak için Gauss gürültüsünü kullanır. Ardından görüntüyü yeniden oluşturmak için bir ters difüzyon işlemi ile birlikte bir gürültü öngörücü kullanırlar. Çeşitlilik maksadıyla bu yöntemi kullanan birden fazla eğitilmiş model kullanılmıştır. Bu yöntem için kullandığımız modeller “stable-diffusion-v1-4” ve “stable-diffusion-v1-5” modelleridir.
+Stable Diffusion, metin ve benzersiz görüntü üretimi amacıyla oluşturulmuş bir üretici yapay zeka modelidir. Prensipte, difüzyon modelleri bir görüntüyü kodlamak için Gauss gürültüsünü kullanır. Ardından görüntüyü yeniden oluşturmak için bir ters difüzyon işlemi ile birlikte bir gürültü öngörücü kullanırlar. Çeşitlilik maksadıyla bu yöntemi kullanan birden fazla eğitilmiş model kullanılmıştır. Bu yöntem için kullandığımız modeller “stable-diffusion-v1-4” ve “stable-diffusion-v1-5” modelleridir. Kullandığımız model [burada]([https://github.com](https://civitai.com/models/120298/chinese-landscape-art)) yer almaktadır.
+
 
 ### Stable Diffusion XL
 
@@ -55,7 +56,7 @@ Stable Diffusion XL, daha iyi çıktı üretmesi amacıyla yeniden dizayn edilme
 
 ### VQGAN
 
-GAN Mimarisi üzerine kurulu ve vektör kuantizasyonu kullanan bir modeldir. Giriş verisi düşük boyutlu bir vektöre özetlenir. Encoder, Quantizer ve Decoder ağlarından oluşur. Min-dalle kütüphanesi aracılığı ile projemizde decoder ağını vqgan bazlı kullanan bir yöntem daha uyguladık. Böylece bir GAN türünü de kıyaslama fırsatı yakalamış olduk.
+GAN Mimarisi üzerine kurulu ve vektör kuantizasyonu kullanan bir modeldir. Giriş verisi düşük boyutlu bir vektöre özetlenir. Encoder, Quantizer ve Decoder ağlarından oluşur. Min-dalle kütüphanesi aracılığı ile projemizde decoder ağını vqgan bazlı kullanan bir yöntem daha uyguladık. Böylece bir GAN türünü de kıyaslama fırsatı yakalamış olduk. Kullandığımız model [burada]([https://drive.google.com/file/d/1IzQTybxQlcFRDXOh6QWBh3OfgOxb9sRb/view?usp=drive_link]) yer almaktadır.
 
 ![SD](images/architectureGAN.png)
 
