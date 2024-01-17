@@ -56,7 +56,7 @@ Stable Diffusion XL, daha iyi çıktı üretmesi amacıyla yeniden dizayn edilme
 
 ### VQGAN
 
-GAN Mimarisi üzerine kurulu ve vektör kuantizasyonu kullanan bir modeldir. Giriş verisi düşük boyutlu bir vektöre özetlenir. Encoder, Quantizer ve Decoder ağlarından oluşur. Min-dalle kütüphanesi aracılığı ile projemizde decoder ağını vqgan bazlı kullanan bir yöntem daha uyguladık. Böylece bir GAN türünü de kıyaslama fırsatı yakalamış olduk. Kullandığımız model [burada](https://drive.google.com/file/d/1IzQTybxQlcFRDXOh6QWBh3OfgOxb9sRb/view?usp=drive_link) yer almaktadır.
+GAN Mimarisi üzerine kurulu ve vektör kuantizasyonu kullanan bir modeldir. Giriş verisi düşük boyutlu bir vektöre özetlenir. Encoder, Quantizer ve Decoder ağlarından oluşur. Min-dalle kütüphanesi aracılığı ile projemizde decoder ağını vqgan bazlı kullanan bir yöntem daha uyguladık. Böylece bir GAN türünü de kıyaslama fırsatı yakalamış olduk. Kullandığımız model [burada](https://drive.google.com/file/d/1IzQTybxQlcFRDXOh6QWBh3OfgOxb9sRb/view?usp=drive_link) veya [burada](https://drive.google.com/file/d/1-wDuhSywOwoV1KmN86VDeQ-MhKXv0Su0/view?usp=drive_link) yer almaktadır.
 
 ![SD](images/architectureGAN.png)
 
