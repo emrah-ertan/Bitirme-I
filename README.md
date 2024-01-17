@@ -51,7 +51,7 @@ Stable Diffusion, metin ve benzersiz görüntü üretimi amacıyla oluşturulmu�
 
 Stable Diffusion XL, daha iyi çıktı üretmesi amacıyla yeniden dizayn edilmesi ve güncellenmesiyle oluşturulmuş yeni bir model olarak tanıtılmaktadır.  Encoder ve decoder ağlarından oluşur. Diffusion işlemi, görüntüdeki piksellerin gradyanlarının düzenlenmesiyle gerçekleştirilir. Bu yöntem için kullandığımız model “sdxl-1024-v1-0” modelidir.
 
-![SD](images/architectureSD.png)
+![SD](images/architectureSD.jpg)
 
 ### VQGAN
 
