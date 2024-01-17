@@ -51,13 +51,19 @@ Stable Diffusion, metin ve benzersiz görüntü üretimi amacıyla oluşturulmu�
 
 Stable Diffusion XL, daha iyi çıktı üretmesi amacıyla yeniden dizayn edilmesi ve güncellenmesiyle oluşturulmuş yeni bir model olarak tanıtılmaktadır.  Encoder ve decoder ağlarından oluşur. Diffusion işlemi, görüntüdeki piksellerin gradyanlarının düzenlenmesiyle gerçekleştirilir. Bu yöntem için kullandığımız model “sdxl-1024-v1-0” modelidir.
 
+![SD](images/architectureSD.png)
+
 ### VQGAN
 
 GAN Mimarisi üzerine kurulu ve vektör kuantizasyonu kullanan bir modeldir. Giriş verisi düşük boyutlu bir vektöre özetlenir. Encoder, Quantizer ve Decoder ağlarından oluşur. Min-dalle kütüphanesi aracılığı ile projemizde decoder ağını vqgan bazlı kullanan bir yöntem daha uyguladık. Böylece bir GAN türünü de kıyaslama fırsatı yakalamış olduk.
 
+![SD](images/architectureGAN.png)
+
 ### CLIP
 
 CLIP yöntemi, kontrastif öğrenme yöntemini kullanan bir modeldir. Dil ve görüntünün aynı uzayda temsil edildiği bir modeldir.  Metin ve görüntü temsilcileri kullanarak prompt’a karşılık gelen benzer temsilleri üretirler. Projemizde eğitilmiş bir CLIP modeli olan ‘kandinsky-2-1’ modeli kullanılmıştır. 
+
+![SD](images/architectureCLIP.png)
 
 
 ## Bulgular
