@@ -201,17 +201,11 @@ def generateImage(prompt,images, labels = None):
     n_cols = 5
     n_rows = int(np.ceil(N / n_cols))
 
-    plt.figure(figsize = (20, 5 * n_rows))
+
     for i in range(len(images)):
-        plt.subplot(n_rows, n_cols, i + 1)
-        if labels is not None:
-            plt.title(labels[i])
-        plt.imshow(np.array(images[i]))
         prompt = prompt.lower().replace(" ","")
         saveImage = cv2.cvtColor(np.array(images[i]),cv2.COLOR_RGB2BGR)
         cv2.imwrite(f"GeneratedImages/imageStablev15.png",saveImage)
 
-        plt.axis(False)
-    #plt.show()
 
 generateImage(prompt,images, seeds[:len(images)])
