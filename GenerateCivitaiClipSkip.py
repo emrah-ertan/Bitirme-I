@@ -3,7 +3,6 @@ import diffusers
 import transformers
 import time
 import torch
-import matplotlib.pyplot as plt
 import numpy as np
 
 

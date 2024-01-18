@@ -1,8 +1,6 @@
 # flask_app.py
-import os
 import shutil
-
-from flask import Flask, render_template, request, jsonify, redirect, send_file
+from flask import Flask, render_template, request, jsonify, send_file
 import main
 
 app = Flask(__name__, template_folder="templates", static_url_path='/GeneratedImages', static_folder='GeneratedImages')
@@ -18,6 +16,7 @@ def add_header(response):
 @app.route('/', methods=['GET'])
 def home():
     return render_template("index.html")
+
 @app.route('/process', methods=['POST'])
 def process():
     data = request.get_json()
