@@ -120,7 +120,7 @@ def get_prompt_embeddings(
 
 
 #----------
-from main import userPrompt
+userPrompt = open("userprompt", "r").read()
 
 prompt = userPrompt
 
@@ -142,14 +142,14 @@ prompt_embeds, negative_prompt_embeds = get_prompt_embeddings(
 # use the prompt strings.
 use_prompt_embeddings = True
 
-from main import mainSeed
-
+mainSeed = open("seed", "r").read()
+mainSeed = int(mainSeed)
 # Seed and batch size.
 start_idx = 0                                                          #Random oluşturulacak
 batch_size = 1                                                         #Kaç resim çıkarılacak
 seeds = [mainSeed]
 
-from main import adimSayisi
+adimSayisi = open("useradimsayisi", "r").read()
 
 num_inference_steps = int(adimSayisi)                                              #Kaç adımda çıkarılacak
 

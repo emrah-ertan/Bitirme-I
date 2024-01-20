@@ -2,15 +2,15 @@ import torch
 from diffusers import StableDiffusionPipeline
 import cv2
 import numpy as np
-from main import userPrompt
+userPrompt = open("userprompt", "r").read()
 
 prompt = userPrompt
 
 hugging_face_key = open("HUGGING_FACE_KEY", "r").read()
 
-from main import adimSayisi
-from main import mainSeed
-
+adimSayisi = open("useradimsayisi", "r").read()
+mainSeed = open("seed", "r").read()
+mainSeed = int(mainSeed)
 class CFG:
     if(torch.cuda.is_available()):
         device ="cuda"
@@ -49,3 +49,4 @@ image = cv2.cvtColor(np.array(image),cv2.COLOR_RGB2BGR)
 
 #cv2.imshow("Generated Image",image)
 cv2.imwrite("GeneratedImages/imageStablev14"+".png",image)
+

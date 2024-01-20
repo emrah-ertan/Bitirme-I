@@ -1,8 +1,15 @@
+
+
 import torch
 from min_dalle import MinDalle
 from torchvision.transforms import ToTensor
 from torchvision.utils import save_image
-from main import userPrompt, mainSeed, adimSayisi
+
+userPrompt= open("userprompt", "r").read()
+mainSeed = open("seed", "r").read()
+mainSeed= int(mainSeed)
+adimSayisi = open("useradimsayisi", "r").read()
+
 import PIL.Image
 
 
@@ -41,6 +48,9 @@ def generate_image(
     save_image(image_tensor, image_path)
 
 
+
 # Örnek kullanım
-generate_image(False, userPrompt, int(mainSeed), 1, 1, "GeneratedImages/imageMiniDalle2.png",
-               models_root="./pretrained", fp16=False)
+generate_image(False, userPrompt, -1, 1, 1, "GeneratedImages/imageMiniDalle2.png",
+               models_root="./pretrained", fp16=True)
+
+

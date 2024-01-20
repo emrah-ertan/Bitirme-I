@@ -3,10 +3,14 @@ import io
 import warnings
 
 import numpy as np
+import torch
 from PIL import Image
 from stability_sdk import client
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
-from main import userPrompt
+userPrompt= open("userprompt", "r").read()
+mainSeed = open("seed", "r").read()
+mainSeed= int(mainSeed)
+adimSayisi = open("useradimsayisi", "r").read()
 
 
 
@@ -30,8 +34,6 @@ stability_api = client.StabilityInference(
 
 
 
-from main import adimSayisi
-from main import mainSeed
 
 answers = stability_api.generate(
     prompt= str(userPrompt),
@@ -53,3 +55,6 @@ for resp in answers:
         if artifact.type == generation.ARTIFACT_IMAGE:
             img = Image.open(io.BytesIO(artifact.binary))
             img.save("GeneratedImages/imageStability.png")
+
+
+

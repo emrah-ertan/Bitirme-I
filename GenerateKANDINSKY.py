@@ -1,6 +1,13 @@
+
+
 from diffusers import AutoPipelineForText2Image
 import torch
-from main import userPrompt,mainSeed,adimSayisi
+
+userPrompt= open("userprompt", "r").read()
+mainSeed = open("seed", "r").read()
+mainSeed= int(mainSeed)
+adimSayisi = open("useradimsayisi", "r").read()
+
 
 pipe = AutoPipelineForText2Image.from_pretrained("kandinsky-community/kandinsky-2-1", torch_dtype=torch.float16)
 pipe.enable_model_cpu_offload()
