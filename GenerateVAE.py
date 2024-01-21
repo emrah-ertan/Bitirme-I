@@ -1,5 +1,4 @@
 import os
-
 import keras
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,7 +7,7 @@ from keras import backend as K
 from keras.layers import Input, Dense, Conv2D, Conv2DTranspose, Flatten, Lambda, Reshape
 from keras.models import Model
 from keras.losses import binary_crossentropy
-from keras.datasets import cifar10
+from keras.datasets import cifar100
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
 
@@ -29,13 +28,13 @@ with open("seed", "r") as dosyaSeed:
     mainSeed = int(dosyaSeed.read())
 
 # CIFAR-10 veri setinin yüklenmesi
-(X_train, y_train), (X_test, y_test) = keras.datasets.cifar10.load_data()
+(X_train, y_train), (X_test, y_test) = keras.datasets.cifar100.load_data()
 
 # Veri setinin normalize edilmesi
 X_train = X_train / 255
 X_test = X_test / 255
 
-# Giriş görüntülerinin boyutları
+# Giriş görüntülerinin boyutları"
 img_height = X_train.shape[1]  # 32
 img_width = X_train.shape[2]   # 32
 num_channels = X_train.shape[3]  # 3 (RGB)
@@ -87,7 +86,8 @@ vae_model, encoder_model, decoder_model = build_vae_model(input_shape, latent_di
 
 # LOSS FUNCTION
 def kl_reconstruction_loss(true, pred):
-    global sigma,mu
+    sigma= encoder_model.layers[-2].output
+    mu = encoder_model.layers[-1].output
     reconstruction_loss = binary_crossentropy(K.flatten(true), K.flatten(pred)) * img_width * img_height
     kl_loss = 1 + sigma - K.square(mu) - K.exp(sigma)
     kl_loss = K.sum(kl_loss, axis=-1)
@@ -128,15 +128,16 @@ def generate_and_save_image(x_start, y_start, x_end, y_end, num_images, output_f
 
     new_points = np.hstack((x_axis, y_axis))
     new_images = decoder_model.predict(new_points)
-    new_images = new_images.reshape(new_images.shape[0], new_images.shape[1], new_images.shape[2])
+    #new_images = new_images.reshape(new_images.shape[0], new_images.shape[1], new_images.shape[2])
+    new_images = new_images.reshape(new_images.shape[0], img_height, img_width, num_channels)
 
     # En sonuncu görüntüyü kaydet
     final_image_path = os.path.join(output_folder, "imageVAE.png")
     plt.imsave(final_image_path, new_images[-1], cmap='gray')
 
     # Diğer adımlardaki görüntüleri kaydet
-    for i in range(num_images):
+    """""for i in range(num_images):
         image_path = os.path.join(output_folder, f"image_{i}.png")
-        plt.imsave(image_path, new_images[i], cmap='gray')
+        plt.imsave(image_path, new_images[i], cmap='gray')"""""
 
-generate_and_save_image(0, 2, 2, 0, 1)      #son parametre 10 da olabilir. Denenebilir
+generate_and_save_image(0, 2, 2, 0, adimSayisi)
