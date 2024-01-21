@@ -116,6 +116,13 @@ def run():
         else:
             continue
     del sys.modules["GenerateMiniDalle2"]"""""
+    import GenerateVAE
+    while True:
+        if os.path.exists("GeneratedImages/imageVAE.png"):
+            break
+        else:
+            continue
+    del sys.modules["GenerateVae"]
     print(f"Main.py run() fonksiyonu çalıştı. Gelen prompt: {userPrompt}")
     print(f"Main.py run() fonksiyonu çalıştı. Gelen adım sayısı: {adimSayisi}")
     print(f"Dönüş değeri 1 olarak belirlendi ve döndürülüyor")

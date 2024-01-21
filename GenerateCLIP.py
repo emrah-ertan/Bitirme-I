@@ -1,9 +1,13 @@
 import torch
 from torchvision import transforms
 import clip
-from PIL import Image
-from main import userPrompt
-from main import adimSayisi
+
+
+with open("userprompt", 'r') as dosyaPrompt:
+    userPrompt = dosyaPrompt.read()
+
+with open("useradimsayisi","r") as dosyaAdimSayisi:
+    adimSayisi = dosyaAdimSayisi.read()
 
 
 device ='cuda'

@@ -1,5 +1,3 @@
-
-
 import torch
 from min_dalle import MinDalle
 from torchvision.transforms import ToTensor
