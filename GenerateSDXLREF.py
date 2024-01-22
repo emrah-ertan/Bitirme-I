@@ -58,5 +58,5 @@ if use_refiner:
       ).images
 
 #print(f"Prompt:\t{prompt}\nSeed:\t{seed}")
-images[0].save("GeneratedImages/imageSDXL.png")
+images[0].save("GeneratedImages/imageSDXLREF.png")
 

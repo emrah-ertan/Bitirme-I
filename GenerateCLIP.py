@@ -14,7 +14,7 @@ device ='cuda'
 cutn =  16
 shape = (512, 512)
 lr = 0.03
-steps = int(adimSayisi) * 100
+steps = int(adimSayisi) * 1000
 clip_model = "ViT-B/32"
 prompt = str(userPrompt)
 

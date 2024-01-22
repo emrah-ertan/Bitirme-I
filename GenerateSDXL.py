@@ -31,6 +31,7 @@ if use_refiner:
       text_encoder_2=pipe.text_encoder_2,
       vae=pipe.vae,
       torch_dtype=torch.float16,
+      batch_size=1,
       use_safetensors=True,
       variant="fp16",
   )

@@ -123,7 +123,7 @@ def run():
         else:
             continue
     del sys.modules["GenerateVae"]"""""
-    import GenerateSDXL
+    """""import GenerateSDXL
     while True:
         if os.path.exists("GeneratedImages/imageSDXL.png"):
             break
@@ -136,11 +136,12 @@ def run():
             break
         else:
             continue
-    del sys.modules["GenerateSDXLREF"]
+    del sys.modules["GenerateSDXLREF"]"""""
     print(f"Main.py run() fonksiyonu çalıştı. Gelen prompt: {userPrompt}")
     print(f"Main.py run() fonksiyonu çalıştı. Gelen adım sayısı: {adimSayisi}")
     print(f"Dönüş değeri 1 olarak belirlendi ve döndürülüyor")
-    # Çöp toplamayı tetikle
+
+
     gc.collect()
     return 1
 
@@ -154,8 +155,8 @@ def indir():
         Convert.to_svg_openPotrace("GeneratedImages/imageStablev15ClipSkip.png",blackLevel)
     if os.path.exists("GeneratedImages/imageStablev14.png"):
         Convert.to_svg_openPotrace("GeneratedImages/imageStablev14.png", blackLevel)
-    #if os.path.exists("GeneratedImages/imageStability.png"):
-        # Convert.to_svg_openPotrace("GeneratedImages/imageStability.png", blackLevel)
+    if os.path.exists("GeneratedImages/imageStability.png"):
+        Convert.to_svg_openPotrace("GeneratedImages/imageStability.png", blackLevel)
     if os.path.exists("GeneratedImages/imageKANDINSKY.png"):
         Convert.to_svg_openPotrace("GeneratedImages/imageKANDINSKY.png",blackLevel)
     if os.path.exists("GeneratedImages/imageMiniDalle2.png"):
@@ -168,8 +169,8 @@ def indir():
         Scale.svg("GeneratedImages/vector_graphicStablev15ClipSkip.svg")
     if os.path.exists("GeneratedImages/vector_graphicStablev14.svg"):
         Scale.svg("GeneratedImages/vector_graphicStablev14.svg")
-    #if os.path.exists("GeneratedImages/vector_graphicStability.svg"):
-        #Scale.svg("GeneratedImages/vector_graphicStability.svg")
+    if os.path.exists("GeneratedImages/vector_graphicStability.svg"):
+        Scale.svg("GeneratedImages/vector_graphicStability.svg")
     if os.path.exists("GeneratedImages/vector_graphicKANDINSKY.svg"):
         Scale.svg("GeneratedImages/vector_graphicKANDINSKY.svg")
     if os.path.exists("GeneratedImages/vector_graphicMiniDalle2.svg"):

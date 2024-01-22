@@ -1,8 +1,5 @@
 from PIL import Image
 import potrace
-import Scale
-
-
 
 
 def to_svg_openPotrace(path,blackLevel):
