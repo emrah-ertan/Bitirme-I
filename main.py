@@ -13,12 +13,12 @@ adimSayisi = 10
 blackLevel = 0.5
 olcek = 0.5
 
-mainSeed = np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
 
 
 def run():
+    mainSeed = np.random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9])
     with open("userprompt", "w") as dosyaPrompt:
         dosyaPrompt.write(str(userPrompt))
     with open("userAdimSayisi", "w") as dosyaAdimSayisi:
