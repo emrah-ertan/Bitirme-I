@@ -43,6 +43,8 @@ def run():
         os.remove("GeneratedImages/imageKANDINSKY.png")
     if os.path.exists("GeneratedImages/imageMiniDalle2.png"):
         os.remove("GeneratedImages/imageMiniDalle2.png")
+    if os.path.exists("GeneratedImages/imageVAEDiffusion.png"):
+        os.remove("GeneratedImages/imageVAEDiffusion.png")
 
     #svg dosyalarını sil
     if os.path.exists("GeneratedImages/vector_graphicStablev15.svg"):
@@ -57,6 +59,8 @@ def run():
         os.remove("GeneratedImages/vector_graphicKANDINSKY.svg")
     if os.path.exists("GeneratedImages/vector_graphicMiniDalle2.svg"):
         os.remove("GeneratedImages/vector_graphicMiniDalle2.svg")
+    if os.path.exists("GeneratedImages/vector_graphicVAEDiffusion.svg"):
+        os.remove("GeneratedImages/vector_graphicVAEDiffusion.svg")
 
     #scaled svg dosyalarını sil
     if os.path.exists("GeneratedImages/vector_graphic_scaledStablev15.svg"):
@@ -71,6 +75,8 @@ def run():
         os.remove("GeneratedImages/vector_graphic_scaledKANDINSKY.svg")
     if os.path.exists("GeneratedImages/vector_graphic_scaledMiniDalle2.svg"):
         os.remove("GeneratedImages/vector_graphic_scaledMiniDalle2.svg")
+    if os.path.exists("GeneratedImages/vector_graphic_scaledVAEDiffusion.png"):
+        os.remove("GeneratedImages/vector_graphic_scaledVAEDiffusion.png")
 
 
     #Mevcut dosyalar silindikten sonra yeni dosyaların oluşturulması
@@ -109,6 +115,13 @@ def run():
         else:
             continue
     del sys.modules["GenerateKANDINSKY"]
+    import GenerateVAEDiffusion
+    while True:
+        if os.path.exists("GeneratedImages/imageVAEDiffusion.png"):
+            break
+        else:
+            continue
+    del sys.modules["GenerateVAEDiffusion"]
     """""import GenerateMiniDalle2
     while True:
         if os.path.exists("GeneratedImages/imageMiniDalle2.png"):
@@ -161,6 +174,8 @@ def indir():
         Convert.to_svg_openPotrace("GeneratedImages/imageKANDINSKY.png",blackLevel)
     if os.path.exists("GeneratedImages/imageMiniDalle2.png"):
         Convert.to_svg_openPotrace("GeneratedImages/imageMiniDalle2.png",blackLevel)
+    if os.path.exists("GeneratedImages/imageVAEDiffusion.png"):
+        Convert.to_svg_openPotrace("GeneratedImages/imageVAEDiffusion.png",blackLevel)
 
 
     if os.path.exists("GeneratedImages/vector_graphicStablev15.svg"):
@@ -175,8 +190,10 @@ def indir():
         Scale.svg("GeneratedImages/vector_graphicKANDINSKY.svg")
     if os.path.exists("GeneratedImages/vector_graphicMiniDalle2.svg"):
         Scale.svg("GeneratedImages/vector_graphicMiniDalle2.svg")
+    if os.path.exists("GeneratedImages/vector_graphicVAEDiffusion.svg"):
+        Scale.svg("GeneratedImages/vector_graphicVAEDiffusion.svg")
+
 
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen blackLevel: {blackLevel}")
-
     print(f"Main.py indir() fonksiyonu çalıştı. Gelen ölçek: {olcek}")
     return 1

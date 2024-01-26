@@ -106,7 +106,7 @@
             <!-- Adım Sayısı -->
             <div class="mb-3">
                 <label for="stepCount" class="form-label">Steps:</label>
-                <input type="number" id="stepCount" name="stepCount" class="form-control" min="0" max="100" value="0" step="10" required>
+                <input type="number" id="stepCount" name="stepCount" class="form-control" min="20" max="80" value="0" step="10" required>
             </div>
             <!-- BlackLevel -->
             <div class="mb-3">
@@ -182,6 +182,15 @@
                     <img src="{{ url_for('static', filename='imageKANDINSKY.png') }}" class="img-fluid project-image card-img-top" alt="">
                     <div class="card-body">
                         <p class="card-text">CLIP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Altıncı resim -->
+                <div class="card project-card">
+                    <img src="{{ url_for('static', filename='imageVAEDiffusion.png') }}" class="img-fluid project-image card-img-top" alt="">
+                    <div class="card-body">
+                        <p class="card-text">VAE Diffusion</p>
                     </div>
                 </div>
             </div>
